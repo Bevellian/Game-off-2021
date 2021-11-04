@@ -42,5 +42,6 @@ public class playerMovement : MonoBehaviour
     
     void onInfection(){
         gameManager.GetComponent<gameManager>().addInfected(thisguy);
+        thisguy.GetComponent<health>().isInfected();
      }
 }

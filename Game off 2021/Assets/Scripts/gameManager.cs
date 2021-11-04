@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
     public GameObject currentPlayer;
     public GameObject nextPlayer;
     public GameObject firstPlayer;
+    public GameObject mainCamera;
     
 void Awake(){
 
@@ -35,6 +36,7 @@ void Awake(){
         character = character + 1;
         currentPlayer = infectedplayers[character];
         currentPlayer.GetComponent<playerMovement>().enabled = true;
+        mainCamera.GetComponent<CameraFollow>().targetSwitch(currentPlayer);
         }
     }
 

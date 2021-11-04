@@ -65,10 +65,10 @@ public class uninfectedMovement : MonoBehaviour
         }
      }
 
-    void OnCollisionEnter2D(Collision2D other) 
-    {
-        onInfection();
-    }
+    // void OnCollisionEnter2D(Collision2D other) 
+    // {
+    //     onInfection();
+    // }
 
     void onInfection(){
         gameManager.GetComponent<gameManager>().addInfected(thisguy);

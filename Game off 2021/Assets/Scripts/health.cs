@@ -9,6 +9,8 @@ public class health : MonoBehaviour
     public float infectionTimer;
     public float damageTime = 10;
     public SpriteRenderer playerSprite;
+    public GameObject thisguy;
+    public GameObject gameManager;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -16,13 +18,14 @@ public class health : MonoBehaviour
         infected = true;
         infectionTimer = 0;
         playerSprite.color = new Color(0, 255, 0, 255);
+        gameManager.GetComponent<gameManager>().addInfected(thisguy);
     }
 
     void Update()
     {
         infectionTimer = infectionTimer + Time.deltaTime;
         if (infected && infectionTimer > damageTime){
-            playerHealth = playerHealth - 1;
+            takeDamage(1);
             infectionTimer = 0;
         }
         if (playerHealth <= 5)
@@ -36,6 +39,10 @@ public class health : MonoBehaviour
         }
     }
     
+
+   public void takeDamage(int damage){
+       playerHealth = playerHealth - damage;
+         }
     void headBurst()
     {
 
